@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AspNetKurumsalWeb.Models.Kategori>
+﻿@model IEnumerable<AspNetKurumsalWeb.Models.Model.Kategori>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -17,7 +17,7 @@
                     <li><i class="fa fa-laptop"></i>Dashboard</li>
                     @foreach (var item in Model)
                     {
-                        <li>@item.KategoriAd</li>
+                        <li>@item.KategoriAd - @item.Aciklama</li>
                     }
                 </ol>
             </div>
