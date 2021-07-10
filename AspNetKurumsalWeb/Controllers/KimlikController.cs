@@ -57,6 +57,7 @@ namespace AspNetKurumsalWeb.Controllers
         // POST: Kimlik/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Edit(int id, Kimlik kimlik, HttpPostedFileBase LogoURL)
         {
             if(ModelState.IsValid)
@@ -75,7 +76,7 @@ namespace AspNetKurumsalWeb.Controllers
                     WebImage img = new WebImage(LogoURL.InputStream);
                     FileInfo imginfo = new FileInfo(LogoURL.FileName);
 
-                    string logoname = Guid.NewGuid().ToString() + imginfo.Extension;
+                    string logoname = LogoURL.FileName + imginfo.Extension;
                     img.Resize(300, 200);
                     img.Save("~/Uploads/Kimlik/"+logoname);
 
