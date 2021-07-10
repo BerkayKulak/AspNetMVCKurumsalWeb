@@ -7,7 +7,7 @@
 
 <h2>Düzenle</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","Kimlik",FormMethod.Post, new {enctype = "multipart/form-data" } ))
 {
     //güvenlik açıklarına karşı bunları karşılayan controller tarafında
     //[ValidateAntiForgeryToken]

@@ -1,11 +1,11 @@
-﻿@{
+﻿@*@{
     if (Session["adminid"] == null)
     {
         Response.Redirect("/yonetimpaneli/giris/");
     }
 
     string ControllerAdi = ViewContext.RouteData.GetRequiredString("controller");
-}
+}*@
 <!DOCTYPE html>
 <html>
 <head>
