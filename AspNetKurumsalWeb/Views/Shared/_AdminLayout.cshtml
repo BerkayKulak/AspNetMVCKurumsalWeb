@@ -1,11 +1,12 @@
-﻿@*@{
+﻿@{
+    // admin girişi yapılmamış ise
     if (Session["adminid"] == null)
     {
-        Response.Redirect("/yonetimpaneli/giris/");
+        Response.Redirect("/Admin/Login/");
     }
 
-    string ControllerAdi = ViewContext.RouteData.GetRequiredString("controller");
-}*@
+    //string ControllerAdi = ViewContext.RouteData.GetRequiredString("controller");
+}
 <!DOCTYPE html>
 <html>
 <head>
@@ -297,9 +298,9 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="img/avatar1_small.jpg">
+                                <img alt="" src="/Content/AdminLayout/img/avatar1_small.jpg">
                             </span>
-                            <span class="username">Jenifer Smith</span>
+                            <span class="username">@Session["eposta"]</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -317,7 +318,7 @@
                                 <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                             </li>
                             <li>
-                                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="/Admin/Logout/"><i class="icon_key_alt"></i>Çıkış Yap</a>
                             </li>
                             <li>
                                 <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
@@ -354,6 +355,12 @@
                         <a class="" href="/Hakkimizda/Index">
                             <i class="icon_genius"></i>
                             <span>Hakkımızda</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="/Sliders/Index">
+                            <i class="icon_genius"></i>
+                            <span>Slider</span>
                         </a>
                     </li>
                     <li>
