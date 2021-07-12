@@ -151,6 +151,7 @@ namespace AspNetKurumsalWeb.Controllers
             if (System.IO.File.Exists(Server.MapPath(slider.ResimURL)))
             {
                 System.IO.File.Delete(Server.MapPath(slider.ResimURL));
+
             }
             db.Slider.Remove(slider);
             db.SaveChanges();
