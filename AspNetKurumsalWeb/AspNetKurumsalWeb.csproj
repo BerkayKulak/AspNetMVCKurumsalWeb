@@ -1453,6 +1453,8 @@
     <Content Include="Views\Sliders\Details.cshtml" />
     <Content Include="Views\Sliders\Edit.cshtml" />
     <Content Include="Views\Sliders\Index.cshtml" />
+    <Content Include="Views\Home\SliderPartial.cshtml" />
+    <Content Include="Views\Home\Hakkimizda.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
