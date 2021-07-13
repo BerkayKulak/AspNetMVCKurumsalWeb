@@ -15,6 +15,7 @@ namespace AspNetKurumsalWeb.Models.Model
         public string ResimURL { get; set; }
         public int? KategoriId { get; set; }
         public Kategori Kategori { get; set; }
-     
+        public ICollection<Yorum> Yorums { get; set; }
+
     }
 }
