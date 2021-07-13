@@ -54,10 +54,10 @@ namespace AspNetKurumsalWeb.Controllers
             {
                 WebMail.SmtpServer = "smtp.gmail.com";
                 WebMail.EnableSsl = true;
-                WebMail.UserName = "kulakberkay15@gmail.com";
-                WebMail.Password = "43795164825Fb";
+                WebMail.UserName = "mail";
+                WebMail.Password = "Your password";
                 WebMail.SmtpPort = 587;
-                WebMail.Send("beko_468@hotmail.com", konu, email + "</br>" + mesaj);
+                WebMail.Send("mail", konu, email + "</br>" + mesaj);
                 ViewBag.Uyari = "Mesajınız başarıyla gönderildi";
 
             }
