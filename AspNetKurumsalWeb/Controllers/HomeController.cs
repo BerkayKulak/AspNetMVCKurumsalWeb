@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace AspNetKurumsalWeb.Controllers
@@ -15,9 +16,7 @@ namespace AspNetKurumsalWeb.Controllers
         {
             ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
 
-            ViewBag.Iletisim = db.Iletisim.SingleOrDefault();
-
-            ViewBag.Blog = db.Blog.ToList().OrderByDescending(x => x.BlogId);
+            
                 
             return View();
         }
@@ -34,7 +33,51 @@ namespace AspNetKurumsalWeb.Controllers
 
         public ActionResult Hakkimizda()
         {
+           
             return View(db.Hakkimizda.SingleOrDefault());
         }
+
+        public ActionResult Hizmetlerimiz()
+        {
+            return View(db.Hizmet.ToList().OrderByDescending(x=>x.HizmetId));
+        }
+
+        public ActionResult Iletisim()
+        {
+            return View(db.Iletisim.SingleOrDefault());
+        }
+
+        [HttpPost]
+        public ActionResult Iletisim(string adsoyad = null, string email = null,string konu = null,string mesaj = null)
+        {
+            if(adsoyad != null && email != null)
+            {
+                WebMail.SmtpServer = "smtp.gmail.com";
+                WebMail.EnableSsl = true;
+                WebMail.UserName = "kulakberkay15@gmail.com";
+                WebMail.Password = "43795164825Fb";
+                WebMail.SmtpPort = 587;
+                WebMail.Send("beko_468@hotmail.com", konu, email + "</br>" + mesaj);
+                ViewBag.Uyari = "Mesajınız başarıyla gönderildi";
+
+            }
+            else
+            {
+                ViewBag.Uyari = "Hata Oluştu. Tekrar Deneyiniz.";
+            }
+            return View();
+        }
+
+        public ActionResult FooterPartial()
+        {
+            ViewBag.Hizmetler = db.Hizmet.ToList().OrderByDescending(x => x.HizmetId);
+
+            ViewBag.Iletisim = db.Iletisim.SingleOrDefault();
+
+            ViewBag.Blog = db.Blog.ToList().OrderByDescending(x => x.BlogId);
+            return PartialView();
+        }
+
+      
     }
 }
