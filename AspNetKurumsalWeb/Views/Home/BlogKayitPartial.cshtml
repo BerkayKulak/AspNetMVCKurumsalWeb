@@ -1,11 +1,11 @@
 ﻿
 @model IEnumerable<AspNetKurumsalWeb.Models.Model.Blog>
-
+@using AspNetKurumsalWeb.Helper
 @foreach (var item in Model)
 {
     <li>
         <img src="@item.ResimURL" class="pull-left" alt="@item.Baslik" width="" />
-        <h6><a href="/Home/BlogDetay/@item.BlogId">@item.Baslik</a></h6>
+        <h6><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.Baslik).ToLower()-@item.BlogId">@item.Baslik</a></h6>
         <p>
             @Html.Raw(item.Icerik.Substring(0,10))
         </p>

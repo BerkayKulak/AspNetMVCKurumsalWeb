@@ -19,6 +19,7 @@ namespace AspNetKurumsalWeb.Models.Model
 
         [DisplayName("Yorumunuz")]
         public string Icerik { get; set; }
+        public bool Onay { get; set; }
         public int? BlogId { get; set; }
 
         // blog tablosundan bir kayıt gelecek demek

@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<AspNetKurumsalWeb.Models.Model.Kategori>
+    @using AspNetKurumsalWeb.Helper;
 <ul class="cat">
     @foreach (var item in Model)
     {
-        <li><i class="icon-angle-right"></i><a href="/Home/BlogDetay/@item.KategoriId">@item.KategoriAd</a><span>(@item.Blogs.Count())</span></li>
+        <li><i class="icon-angle-right"></i><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.KategoriAd).ToLower()/@item.KategoriId">@item.KategoriAd</a><span>(@item.Blogs.Count())</span></li>
     }
 
 
